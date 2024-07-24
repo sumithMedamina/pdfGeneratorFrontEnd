@@ -1,0 +1,12 @@
+.form-group {
+    margin-bottom: 20px; /* Increase the gap between fields */
+    font-weight: bold;
+    
+}
+
+.form-control {
+    max-width: 300px; /* Reduce the size of input boxes */
+    width: 100%;
+    margin-top: 10px;
+     /* Add some margin above each input */
+}

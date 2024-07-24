@@ -1,0 +1,146 @@
+
+<div class="main-content">
+<div class="container">
+<div class="container mt-4 ">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row d-flex justify-content-evenly">
+        <div class="col-md-4">
+
+                <div class="form-group">
+                    <h5>Life Assured Details</h5>
+                    <label for="lifeAssuredTitle">Title:</label>
+                    <input type="text" class="form-control" name="lifeAssuredTitle" formControlName="lifeAssuredTitle">
+                </div>
+                <div class="form-group">
+                    <label for="lifeAssuredFirstName">First Name:</label>
+                    <input type="text" class="form-control" name="lifeAssuredFirstName" formControlName="lifeAssuredFirstName">
+                </div>
+                <div class="form-group">
+                    <label for="lifeAssuredLastName">Last Name:</label>
+                    <input type="text" class="form-control" name="lifeAssuredLastName" formControlName="lifeAssuredLastName">
+                </div>
+                <div class="form-group">
+                    <label for="lifeAssuredDOB">DOB:</label>
+                    <input type="date" class="form-control" name="lifeAssuredDOB" formControlName="lifeAssuredDOB">
+                </div>
+                <div class="form-group">
+                    <label for="planOption">Plan Option:</label>
+                    <select id="planOption" name="planOption" class="form-control" formControlName="planOption">
+                        <option value="Lump sum">Lump sum</option>
+                        <option value="Short-Term Income">Short-Term Income</option>
+                        <option value="Long-Term Income">Long-Term Income</option>
+                        <option value="Retirement Income">Retirement Income</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subOption">Sub Option:</label>
+                    <select id="subOption" name="subOption" class="form-control" formControlName="subOption" >
+                        <option value="NA">NA</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="incomeBenefitFrequency">Income Benefit Frequency:</label>
+                    <select id="incomeBenefitFrequency" name="incomeBenefitFrequency" class="form-control" formControlName="incomeBenefitFrequency">
+                        <option value="Monthly">Monthly</option>
+                        <option value="Yearly">Yearly</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Quarterly">Half Yearly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="familyIncomeBenefit">Family income Benefit</label>
+                    <select id="familyIncomeBenefit" name="familyIncomeBenefit" class="form-control" formControlName="familyIncomeBenefit">
+                        <option value="No">No</option>
+                        <option value="Critical Illness">Critical Illness</option>
+                        <option value="Critical Illness and Death">Critical Illness and Death</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="premiumpayingterm">Premium paying term</label>
+                    <select id="premiumpayingterm" name="premiumPayingTerm" class="form-control" formControlName="premiumPayingTerm" >
+                        <option value="No">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="policyTerm">Policy Term</label>
+                    <select id="policyTerm" name="policyTerm" class="form-control" formControlName="policyTerm">
+                        <option value="26">26</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="premiumPayingMode">Premium Paying Mode</label>
+                    <select id="premiumPayingMode" name="premiumPayingMode" class="form-control" formControlName="premiumPayingMode" >
+                        <option value="Monthly">Monthly</option>
+                        <option value="Yearly">Yearly</option>
+                        <option value="Quarterly">Quarterly</option>
+                        <option value="Quarterly">Half Yearly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="installmentPremium">Installment Premium</label>
+                    <input type="text" class="form-control" name="installmentPremium" formControlName="installmentPremium">
+                </div>
+        </div>
+        <div class="col-md-4 mt-4 ">
+                <div class="form-group mt-2">
+                    <label for="mobile">Mobile No:</label>
+                    <input type="number" class="form-control" name="mobile" formControlName="mobile">
+
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" name="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="distributionChannel">Distribution Channel:</label>
+                    <select id="distributionChannel" name="distributionChannel" class="form-control" formControlName="distributionChannel">
+                        <option value="Individual Agent">Individual Agent</option>
+                        <option value="Online">Online</option>
+                        <option value="Broker">Broker</option>
+                        <option value="POS">POS</option>
+                        <option value="Direct marketing">Direct marketing</option>
+                        <option value="Corporate Agent">Corporate Agent</option>
+                        <option value="Web Aggrgator">Web Aggrgator</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" class="form-control" formControlName="category">
+                        <option value="Others">Others</option>
+                        <option value="Online">Online</option>
+                        <option value="Worksite">Worksite</option>
+                        <option value="Staffs">Staffs</option>
+                    </select>
+                </div>
+                <h4>Proposer Details</h4>
+                    <div class="form-group">
+                        <label>Is proposer different from Life Assured?</label>
+                        <input type="checkbox" name="proposerDifferent" formControlName="proposerDifferent">
+                    </div>
+                    <div class="form-group">
+                        <label for="proposerTitle">Title:</label>
+                        <input type="text" class="form-control" name="proposerTitle" formControlName="proposerTitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="proposerFirstName">First Name:</label>
+                        <input type="text" class="form-control" name="proposerFirstName" formControlName="proposerFirstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="proposerLastName">Last Name:</label>
+                        <input type="text" class="form-control" name="proposerLastName" formControlName="proposerLastName" >
+                    </div>
+                    <div class="form-group">
+                        <label for="proposerDOB">DOB:</label>
+                        <input type="date" class="form-control" name="proposerDOB" formControlName="proposerDOB">
+                    </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-2">
+        <button type="submit" class="genrate btn btn-success">Submit</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
