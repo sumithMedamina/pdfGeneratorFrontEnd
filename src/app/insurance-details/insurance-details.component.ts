@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InsuranceService } from '../insurance.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-insurance-details',
@@ -9,18 +10,14 @@ import { InsuranceService } from '../insurance.service';
 })
 export class InsuranceDetailsComponent implements OnInit {
 
-  form: FormGroup = new FormGroup({});
+  form: FormGroup;
 
-
-
-  constructor(private fb: FormBuilder, private insuranceService: InsuranceService) {}
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder, private insuranceService: InsuranceService) {
     this.form = this.fb.group({
-      lifeAssuredTitle: [" "],
-      lifeAssuredFirstName: [" "],
-      lifeAssuredLastName: [" "],
-      lifeAssuredDOB: [" "],
+      lifeAssuredTitle: [''],
+      lifeAssuredFirstName: [''],
+      lifeAssuredLastName: [''],
+      lifeAssuredDOB: [''],
       planOption: [''],
       subOption: [''],
       incomeBenefitFrequency: [''],
@@ -41,13 +38,26 @@ export class InsuranceDetailsComponent implements OnInit {
     });
   }
 
+  ngOnInit(): void {
+    // You can initialize the form with default values here
+  }
 
+  formatDateToDDMMYYYY(date: string): string {
+    if (!date) return '';
+    return formatDate(date, 'dd/MM/yyyy', 'en-US');
+  }
 
   onSubmit(): void {
-    console.log("this is checking",this.form.value);
+    console.log("Checking form submission:", this.form.value);
 
     if (this.form.valid) {
-      this.insuranceService.saveForm(this.form.value).subscribe(
+      const formValue = {
+        ...this.form.value,
+        lifeAssuredDOB: this.formatDateToDDMMYYYY(this.form.value.lifeAssuredDOB),
+        proposerDOB: this.formatDateToDDMMYYYY(this.form.value.proposerDOB)
+      };
+
+      this.insuranceService.saveForm(formValue).subscribe(
         response => {
           console.log('Form saved successfully!', response);
         },
@@ -57,7 +67,4 @@ export class InsuranceDetailsComponent implements OnInit {
       );
     }
   }
-
-
-
 }
